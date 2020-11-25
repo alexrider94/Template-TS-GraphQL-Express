@@ -1,0 +1,61 @@
+type Query{
+    getUserByEmail(
+        email:String
+    ):User
+
+    getUserByNo(
+        no:Int
+    ):User
+
+    loginUser(
+        email:String
+        password:String
+    ):Token
+
+    signUpUser(
+        companyNo:Int
+        email:String
+        password:String
+        name:String
+        contact:String
+        department:String
+        position:String
+        status:String
+        role:String
+    ):Token
+
+    getAllUsers:[User]
+
+    updateUser(
+        userNo:Int,
+        companyNo:Int,
+        email:String,
+        password:String,
+        name:String,
+        contact:String,
+        department:String,
+        position:String,
+        status:String,
+        role:String  
+    ):AffectedRows
+}
+
+type Token{
+    token:String
+}
+
+type User{
+    no: ID!
+    companyNo: Company
+    email: String!
+    password: String
+    name: String
+    contact: String
+    department: String
+    position: String
+    role: String
+    createdDate: String
+    modifiedDate: String
+    status: Code
+    salt: String
+}
